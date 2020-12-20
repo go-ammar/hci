@@ -2,6 +2,7 @@ package com.example.hciscreens;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.app.AlertDialog;
@@ -12,6 +13,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.hciscreens.databinding.ActivityMainBinding;
 import com.example.hciscreens.databinding.CoronaDialogBinding;
@@ -19,7 +21,7 @@ import com.example.hciscreens.ui.AboutDetails;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
-public class MainActivity extends AppCompatActivity {
+public class    MainActivity extends AppCompatActivity {
 
 
     ActivityMainBinding binding;
@@ -30,14 +32,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        binding.menu.setOnClickListener(v -> {
+
+
+        binding.layout.menu.setOnClickListener(v -> {
             startActivity(new Intent(this, mapfile.class));
         });
 
-        binding.today.setChipBackgroundColor(ColorStateList.valueOf(getResources().getColor(R.color.purple_200)));
+        binding.layout.today.setChipBackgroundColor(ColorStateList.valueOf(getResources().getColor(R.color.purple_200)));
 
 
-        binding.notificationBackground.setOnClickListener(v -> {
+        binding.layout.notificationBackground.setOnClickListener(v -> {
 
             CoronaDialogBinding binding2 = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.corona_dialog,
                     null, false);
@@ -63,16 +67,26 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        binding.seriousCV.setOnClickListener(v -> {
+        binding.layout.seriousCV.setOnClickListener(v -> {
             startActivity(new Intent(this, loginActivity.class));
         });
 
-        binding.affectedCV.setOnClickListener(v -> {
+        binding.layout.affectedCV.setOnClickListener(v -> {
             startActivity(new Intent(this, AboutDetails.class));
         });
 
-        binding.activeCV.setOnClickListener(v -> {
+        binding.layout.activeCV.setOnClickListener(v -> {
             startActivity(new Intent(this, sopViolations.class));
+        });
+
+        binding.layout.menu.setOnClickListener(v -> {
+
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.END);
+            } else {
+                binding.drawerLayout.openDrawer(GravityCompat.END);
+            }
+
         });
 
     }
