@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <group android:checkableBehavior="single">
+
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:title="string/text_dashboard" />
+
+        <item
+            android:visible="false"
+            android:id="@+id/nav_notifications"
+            android:title="string/notifications" />
+
+        <item
+            android:visible="false"
+            android:id="@+id/nav_config"
+            android:title="string/notifications" />
+
+        <item
+            android:id="@+id/nav_contact"
+            android:title="string/contact" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:title="string/about" />
+
+        <item
+            android:id="@+id/logoutBtn"
+            android:title="string/logout"
+            android:onClick="logout"
+            />
+
+    </group>
+
+
+
+</menu>
